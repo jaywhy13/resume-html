@@ -1,0 +1,19 @@
+body {
+    margin: 0px;
+    padding: 0px;    
+}
+
+@page {
+    margin: 0px;
+    padding: 0px;    
+}
+
+.navbar {
+    display: block;
+}
+
+.navbar-inverse {
+    background-color: #222;
+    border: none;
+}
+

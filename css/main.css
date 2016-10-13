@@ -1,0 +1,145 @@
+body {
+    background-color: white;    
+    font-family: Raleway;
+    font-size: 14px;
+}
+
+.navbar-inverse {
+    border-radius: 0px;
+}
+
+.navbar-inverse .navbar-brand {
+    color: white;
+}
+
+.sidebar {
+    text-align: right;
+}
+
+h4 {
+    font-weight: bold;    
+}
+
+.social {
+    margin: 10px 0px;
+}
+
+.social img, .email img {
+    float: right;
+    width: 16px;
+    margin: 0px 0px 0px 10px;
+}
+
+.social.twitter img {
+    width: 24px;
+    margin-top: -5px;
+    margin-right: -4px;
+}
+
+
+img.large {
+    width: 36px;
+    margin-right: 5px;
+}
+
+img.med {
+    width: 24px;
+    margin-right: 5px;
+}
+
+img.small {
+    width: 16px;
+    margin-right: 5px;
+}
+
+img.tiny {
+    width: 12px;
+    margin-right: 5px;
+}
+
+.online .twitter.large {
+    margin-left: -5px;
+    margin-right: 0px;
+}
+
+.section {
+    margin-bottom: 30px;
+}
+
+ul.unstyled {
+    list-style: none;
+    padding-left: 60px;
+}
+
+li {
+    padding: 5px 0px;
+}
+
+/**
+ * projects
+ */
+span.dates {
+    margin-right: 20px;
+    text-transform: uppercase;
+    color: #c5c5c5;
+    color: #585858;
+    font-family: Lato;
+    font-size: 11px;
+    font-size: 14px;
+}
+
+span.company {
+    font-weight: bold;
+    color: #828282;
+}
+
+span.project-title {
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+p.project-description {
+    color: #a0a0a0;
+    color: #333333;
+}
+
+span.project-title {
+    font-weight: bold;
+    color: #0a0a0a;
+}
+
+p.technologies-used {
+    color: #a0a0a0;
+    font-size: 11px;
+    font-size: 14px;
+    margin-left: 10px;
+    margin-top: -10px;
+}
+
+
+i.fa {
+    margin-right: 5px;
+}
+
+/**
+ * Colors
+ */
+.pink {
+    color: #E13F7A;
+}
+
+.aqua {
+    color: #6BD9E6;
+}
+
+.orange {
+    color: #EB9841;
+}
+
+.green {
+    color: #A9E043;
+}
+
+.online li {
+    font-family: Lato;
+}
