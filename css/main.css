@@ -1,11 +1,46 @@
 body {
     background-color: white;    
     font-family: Raleway;
-    font-size: 14px;
+    font-family: Roboto;
+    font-size: 12px;
 }
+
+
 
 .navbar-inverse {
     border-radius: 0px;
+    border: none;
+}
+
+.topbar {
+    text-align: center;
+}
+
+.initials {
+    text-align: center;
+}
+
+span.myskills {
+    font-size: 14px;
+    font-family: Lato;
+}
+
+.initials span {
+    font-size: 60px;
+    background-color: #6060a2;
+    display: inline-block;
+    padding: 25px;
+    color: white;
+    border-radius: 50%;    
+}
+
+.heading {
+    text-align: center;
+}
+
+.name {
+    font-size: 44px;
+    font-family: "Patua One";
 }
 
 .navbar-inverse .navbar-brand {
@@ -85,7 +120,7 @@ span.dates {
     color: #585858;
     font-family: Lato;
     font-size: 11px;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 span.company {
@@ -95,7 +130,7 @@ span.company {
 
 span.project-title {
     font-weight: bold;
-    letter-spacing: 1px;
+    /*letter-spacing: 1px;*/
 }
 
 p.project-description {
@@ -111,7 +146,7 @@ span.project-title {
 p.technologies-used {
     color: #a0a0a0;
     font-size: 11px;
-    font-size: 14px;
+    font-size: 12px;
     margin-left: 10px;
     margin-top: -10px;
 }
@@ -119,6 +154,11 @@ p.technologies-used {
 
 i.fa {
     margin-right: 5px;
+}
+
+.number {
+    margin-bottom: 10px;
+    font-family: Lato;
 }
 
 /**
@@ -142,4 +182,16 @@ i.fa {
 
 .online li {
     font-family: Lato;
+}
+
+.email {
+    font-size: 11px;
+}
+
+.grey {
+    color: #828282;
+}
+
+li {
+    page-break-inside: avoid;
 }
