@@ -1,0 +1,59 @@
+body {
+    font-family: "Roboto";
+}
+
+h1, h2, h3 {
+    font-family: "Patua One"
+}
+
+p {
+    font-size: 12px;
+}
+
+li {
+    font-size: 13px;
+}
+
+span.employment-name {
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+.job-title {
+    font-style: italic;
+}
+
+.address {
+    text-align: center;
+}
+
+.period {
+    font-size: 11px;
+    color: #b0b0b0;
+    font-weight: bold;
+}
+
+.professional-experience {
+    margin-bottom: 15px;
+}
+
+.section-heading {
+    background: #efefef;
+    padding: 10px;
+    text-align: center;    
+}
+
+h1.name {
+    display: inline-block;
+}
+
+.name-and-certifications {
+    display: flex;
+    justify-content: center;
+}
+
+
+.certifications {
+    margin: 26px 0px 0px 5px;
+}
+
