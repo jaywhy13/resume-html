@@ -1,0 +1,132 @@
+{% extends "resume_templates/resume_base.html" %}
+
+{% block body %}
+    <div class="container-fluid">
+
+        <!-- Name and contacts -->
+        <div class="row name-row">
+            <div class="col-lg-12">
+                <div class="name-and-certifications">
+                    <h1 class="name">{{ contact.full_name }}</h1>
+                    <div class="certifications">
+                        <h4 class="certification">BSc., </h4>
+                        <h4 class="certification">MSc.</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Address row -->
+        <div class="row address-row">
+            <div class="col-lg-12">
+                <p class="address">
+                    {{ contact.address }} |
+                    {{ contact.email_address }}
+                    {% if contact.linked_in_url %}
+                    | <a href="{{ contact.linked_in_url }}">LinkedIn Profile</a>
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+
+        <!-- Contact profile -->
+        {% if contact.profile %}
+        <div class="row profile-row">
+            <div class="col-lg-12">
+                <h3 class="section-heading">Professional Profile</h3>
+                <div class="profile">
+                    <p>{{ contact.profile }}</p>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <div class="row skills-row">
+            <div class="col-lg-12">
+                <h3 class="section-heading">Core Technical Skills</h3>
+                <ul class="technical-skills">
+                    {% for skill in skills %}
+                        <li class="technical-skill">
+                            <span class="technical-skill-name">{{ skill.name }}</span>
+                            {% if skill.description %}
+                                <span class="technical-skill-description">
+                                    ({{ skill.description }})
+                                </span>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <div class="row professional-experience-row">
+            <div class="col-lg-12">
+                <h3 class="section-heading">
+                    Professional Experience
+                </h3>
+                <div class="professional-experience-listing">
+                    {% for employment in employments %}
+                        <div class="professional-experience">
+                            <div class="experience-details">
+                                <span class="employment-name">{{ employment.company.name }}</span>
+                                <span class="period pull-right">
+                                {% if employment.start_date %}
+                                    {{ employment.start_date.strftime("%m/%Y")}}
+                                {% endif %}
+                                {% if employment.start_date and employment.end_date %}
+                                    -
+                                {% endif %}
+                                {% if employment.end_date %}
+                                    {{ employment.end_date.strftime("%m/%Y")}}
+                                {% endif %}
+                                </span>
+                            </div>
+                            <div class="job-title">{{ employment.title }}</div>
+
+                            {% if employment.overview %}
+                                <div class="employment-overview">
+                                    <p>{{ employment.overview }}</p>                                    
+                                </div>
+                            {% endif %}
+
+                            {% if employment.achievement_listing %}
+                                <div class="achievements">
+                                    <span class="title">Key Achievements</span>                                    
+                                    <ul class="achievements">
+                                        {% for achievement in employment.achievement_listing  %}
+                                            <li class="achievement">{{ achievement }}</li>       
+                                        {% endfor %}                                
+                                    </ul>
+                                </div>
+                            {% endif %}
+                        </div>                        
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="section-heading">Education Experience</h3>
+                <div class="education-experience-listing">
+                    <ul class="education-experience">
+                        {% for education in education_records %}
+                            <li>
+                                <span class="school">{{ education.school.name }}</span>
+                                {% if education.program_name %}
+                                    <span>- {{ education.program_name }}</span>
+                                {% endif %}
+                                {% if education.end_date %}
+                                    <span class="period">
+                                        ( {{ education.end_date.strftime("%Y") }} )
+                                    </span>                                        
+                                {% endif %}
+                            </li>
+                        {% endfor %}
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>  
+{% endblock body %}
