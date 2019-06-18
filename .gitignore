@@ -4,3 +4,4 @@ venv
 resume*.pdf
 resume_files
 *.sublime*
+.mypy_cache
