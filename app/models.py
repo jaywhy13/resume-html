@@ -1,6 +1,6 @@
-from app import db
-
 from sqlalchemy_utils import URLType
+
+from app import db
 
 
 class Contact(db.Model):
@@ -36,6 +36,7 @@ class Contact(db.Model):
 class Skill(db.Model):
     """ A technical skill you have
     """
+
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.Text)
     description = db.Column(db.Text)
@@ -48,8 +49,7 @@ class School(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255))
-    education_records = db.relationship(
-        'Education', backref='school', lazy=True)
+    education_records = db.relationship("Education", backref="school", lazy=True)
 
     def __repr__(self):
         return self.name
@@ -62,18 +62,17 @@ class Education(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     start_date = db.Column(db.DateTime, nullable=True)
     end_date = db.Column(db.DateTime, nullable=True)
-    school_id = db.Column(
-        db.Integer, db.ForeignKey('school.id'), nullable=True)
+    school_id = db.Column(db.Integer, db.ForeignKey("school.id"), nullable=True)
     program_name = db.Column(db.String(255), nullable=True)
 
 
 class Company(db.Model):
     """ A company you worked at
     """
+
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255))
-    employments = db.relationship(
-        'Employment', backref='company', lazy=True)
+    employments = db.relationship("Employment", backref="company", lazy=True)
 
     def __repr__(self):
         return self.name
@@ -89,9 +88,11 @@ class Employment(db.Model):
     end_date = db.Column(db.DateTime, nullable=True)
     achievements = db.Column(db.Text, nullable=True)
     overview = db.Column(db.Text, nullable=True)
-    company_id = db.Column(
-        db.Integer, db.ForeignKey('company.id'))
-    projects = db.relationship('Project', backref='employment', lazy=True)
+    company_id = db.Column(db.Integer, db.ForeignKey("company.id"))
+    projects = db.relationship("Project", backref="employment", lazy=True)
+
+    def __repr__(self):
+        return self.title
 
     @property
     def achievement_listing(self):
@@ -103,26 +104,28 @@ class Employment(db.Model):
 
 
 technologies = db.Table(
-    'technologies',
+    "technologies",
     db.Column(
-        'technology_id', db.Integer, db.ForeignKey('technology.id'),
-        primary_key=True),
-    db.Column(
-        'project_id', db.Integer, db.ForeignKey('project.id'),
-        primary_key=True))
+        "technology_id", db.Integer, db.ForeignKey("technology.id"), primary_key=True
+    ),
+    db.Column("project_id", db.Integer, db.ForeignKey("project.id"), primary_key=True),
+)
 
 
 class Project(db.Model):
     """ A project you did while at a place of employment
     """
+
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255))
-    employment_id = db.Column(
-        db.Integer, db.ForeignKey('employment.id'), nullable=True)
+    employment_id = db.Column(db.Integer, db.ForeignKey("employment.id"), nullable=True)
     summary = db.Column(db.Text)
     technologies = db.relationship(
-        'Technology', secondary=technologies, lazy='subquery',
-        backref=db.backref('projects', lazy=True))
+        "Technology",
+        secondary=technologies,
+        lazy="subquery",
+        backref=db.backref("projects", lazy=True),
+    )
     start_date = db.Column(db.DateTime, nullable=True)
     end_date = db.Column(db.DateTime, nullable=True)
 
@@ -133,10 +136,10 @@ class Project(db.Model):
 class Technology(db.Model):
     """ A technology that was used to execute on the project
     """
+
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255))
     icon = db.Column(URLType, nullable=True)
 
     def __repr__(self):
         return self.name
-
