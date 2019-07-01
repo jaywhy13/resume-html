@@ -1,5 +1,5 @@
 body {
-    background-color: white;    
+    background-color: white;
     font-family: Raleway;
     font-family: Roboto;
     font-size: 12px;
@@ -32,7 +32,7 @@ span.myskills {
     display: inline-block;
     padding: 25px;
     color: white;
-    border-radius: 50%;    
+    border-radius: 50%;
 }
 
 .heading {
@@ -53,14 +53,15 @@ span.myskills {
 }
 
 h4 {
-    font-weight: bold;    
+    font-weight: bold;
 }
 
 .social {
     margin: 10px 0px;
 }
 
-.social img, .email img {
+.social img,
+.email img {
     float: right;
     width: 16px;
     margin: 0px 0px 0px 10px;
@@ -85,7 +86,7 @@ img.med {
 
 img.small {
     width: 16px;
-    margin-right: 5px;
+    margin-right: 2px;
 }
 
 img.tiny {
@@ -150,6 +151,10 @@ p.technologies-used {
     font-size: 12px;
     margin-left: 10px;
     margin-top: -10px;
+}
+
+.technologies-used img {
+    margin-left: 5px;
 }
 
 

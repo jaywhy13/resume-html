@@ -2,10 +2,19 @@ import os
 
 import pdfkit
 from flask import make_response, render_template
+from sqlalchemy import desc
 
 from app import app
-from app.models import (Company, Contact, Education, Employment, Project,
-                        School, Skill, Technology)
+from app.models import (
+    Company,
+    Contact,
+    Education,
+    Employment,
+    Project,
+    School,
+    Skill,
+    Technology,
+)
 
 TEMPLATE_DIR = "app/templates/resume_templates"
 
@@ -26,7 +35,7 @@ def get_template(template_name=None, **kwargs):
     education_records = Education.query.order_by("end_date")
     companies = Company.query.all()
     projects = Project.query.all()
-    employments = Employment.query.order_by("start_date")
+    employments = Employment.query.order_by(desc("start_date"))
     technologies = Technology.query.all()
     contact = Contact.query.first()
     skills = Skill.query.all()
