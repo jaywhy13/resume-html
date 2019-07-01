@@ -87,7 +87,9 @@ class Employment(db.Model):
     achievements = db.Column(db.Text, nullable=True)
     overview = db.Column(db.Text, nullable=True)
     company_id = db.Column(db.Integer, db.ForeignKey("company.id"))
-    projects = db.relationship("Project", backref="employment", lazy=True)
+    projects = db.relationship(
+        "Project", backref="employment", lazy=True, order_by="-Project.start_date"
+    )
 
     def __repr__(self):
         return f"{self.title}, {self.company.name}"
