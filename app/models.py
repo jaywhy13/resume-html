@@ -1,3 +1,5 @@
+from sqlalchemy import desc
+
 from app import db
 
 
