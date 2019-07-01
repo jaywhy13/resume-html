@@ -147,8 +147,8 @@ class Project(db.Model):
 
     @property
     def frameworks_by_technology(self):
-        result = []
-        all_technologies = []
+        results = []
+        all_technologies = self.technologies
         all_frameworks = []
         for framework in self.frameworks:
             all_frameworks.append(framework)
@@ -158,15 +158,18 @@ class Project(db.Model):
                 all_technologies.append(technology)
 
         for technology in all_technologies:
-            frameworks = ", ".join(
-                [
-                    framework.name
-                    for framework in all_frameworks
-                    if framework.technology.id == technology.id
-                ]
+            frameworks = [
+                framework.name
+                for framework in all_frameworks
+                if framework.technology.id == technology.id
+            ]
+            frameworks.sort()
+            results.append(
+                {"technology": technology, "frameworks": ", ".join(frameworks)}
             )
-            result.append({"technology": technology, "frameworks": frameworks})
-        return result
+
+        results.sort(key=lambda result: result.get("technology").name)
+        return results
 
 
 class Framework(db.Model):
