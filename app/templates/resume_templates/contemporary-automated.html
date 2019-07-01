@@ -79,16 +79,9 @@
             <h4>programming</h4>
 
             <ul class="unstyled text-muted">
-              <li><img src="/static/img/python.png" alt="" class="small">Python (Django, Celery, ScikitLearn)</li>
-              <li><img src="/static/img/php.png" alt="" class="med">PHP (Wordpress, Drupal, Symfony)</li>
-              <li><img src="/static/img/ruby.png" alt="" class="small">Ruby (Chef)</li>
-              <li><img src="/static/img/database.png" alt="" class="small">PostgreSQL, MySQL, Redis, Mongo</li>
-              <li><img src="/static/img/browser.png" alt="" class="small">HTML (Bootstrap)</li>
-              <li><img src="/static/img/javascript.png" class="med" alt="">Javascript (AngularJS, Knockout, jQuery,
-                Google Maps)</li>
-              <li><img src="/static/img/mobile.png" alt="" class="small">Android</li>
-              <li><img src="/static/img/microsoft.png" alt="" class="small">.NET (C#)</li>
-              <li><img src="/static/img/terminal.png" alt="" class="small">Bash scripting</li>
+              {% for technology in technologies %}
+              <li><img src="{{ technology.icon_url }}" alt="" class="small">{{ technology }}</li>
+              {% endfor %}
             </ul>
           </div>
 
@@ -122,19 +115,12 @@
                     {{ project.summary }}
                   </p>
                   <p class="technologies-used">
-                    {% for technology in project.technologies %}
-                    {% if technology.icon_url %}
-                    <img src="{{ technology.icon_url }}" class="small">
-                    {% endif %}
-                    {{ technology.name }}
-                    {% endfor %}
-
                     {% for framework_and_technology in project.frameworks_by_technology %}
                     {% with technology = framework_and_technology.technology, frameworks = framework_and_technology.frameworks  %}
                     {% if technology.icon_url %}
                     <img src="{{ technology.icon_url }}" class="small">
                     {% endif %}
-                    {{ frameworks }}
+                    {% if frameworks %} {{ frameworks }} {% else %} {{ technology.name }}{% endif %}
                     {% endwith %}
                     {% endfor %}
                   </p>
@@ -189,22 +175,11 @@
           <h4><span class="aqua">on</span>line</h4>
           <ul class="unstyled">
             <li>
-              <img src="/static/img/skype.png" class="med">Skype: jaywhy13
-            </li>
-            <li>
               <img src="/static/img/github.png" class="med">Github: <a href="https://github.com/jaywhy13">jaywhy13</a>
             </li>
             <li>
               <img src="/static/img/twitter.png" class="large twitter">Twitter: <a
                 href="https://twitter.com/kramnaej">kramnaej</a>
-            </li>
-            <li>
-              <img src="/static/img/pinterest.png" class="med">Pinterest: <a href="https://www.pinterest.com/jaywhy13/">
-                jaywhy13</a>
-            </li>
-            <li>
-              <img src="/static/img/stackoverflow.png" class="med">StackOverflow: <a
-                href="http://stackoverflow.com/users/1267625/jaywhy13">jaywhy13</a>
             </li>
             <li>
               <img src="/static/img/linkedin.png" class="med">LinkedIn:
