@@ -206,10 +206,12 @@ class Technology(db.Model):
             "ruby": "ruby",
             "android": "mobile",
             "javascript": "javascript",
+            "typescript": "typescript",
             ".net": "microsoft",
             "php": "php",
             "html": "browser",
             "database": "database",
+            "graphql": "graphql",
         }
         icon = icons.get(self.name.lower())
         return (base_url % icon) if icon else None
