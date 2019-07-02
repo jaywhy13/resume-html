@@ -54,18 +54,18 @@
             {% endif %}
 
             {% if contact.github_username %}
-            <div class="social text-muted"><img src="/static/img/github.png" alt=""><a
-                href="https://github.com/{{ contact.github_username }}/">{{ contact.github_username }}</a></div>
+            <div class="social text-muted"><img src="/static/img/github.png" alt="">{{ contact.github_username }}
+            </div>
             {% endif %}
 
             {% if contact.twitter_username %}
-            <div class="social text-muted twitter"><img src="/static/img/twitter.png" alt=""><a
-                href="https://twitter.com/{{ contact.twitter_username }}">{{ contact.twitter_username }}</a></div>
+            <div class="social text-muted twitter"><img src="/static/img/twitter.png"
+                alt="">{{ contact.twitter_username }}</div>
             {% endif %}
 
             {% if contact.linked_in_username %}
-            <div class="social text-muted"><img src="/static/img/linkedin.png" alt=""><a
-                href="{{ contact.linked_in_url }}">{{ contact.linked_in_username }}</a></div>
+            <div class="social text-muted"><img src="/static/img/linkedin.png" alt="">{{ contact.linked_in_username }}
+            </div>
             {% endif %}
           </div>
 
